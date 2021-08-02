@@ -1,5 +1,5 @@
 CREATE TABLE recipes(
-       'rname' TEXT NOT NULL,
+       'rname' TEXT NOT NULL UNIQUE,
        'rating' INTEGER NOT NULL,
        'difficulty_level' TEXT NOT NULL,
        'type' TEXT NOT NULL,
