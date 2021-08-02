@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<title>cook50 | Recipe List</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+	<tr>
+	  <th>ID<th>
+	  <th>Recipe<th>
+	  <th>Rating<th>
+	  <th>Difficulty Level<th>
+	  <th>Type<th>
+	  <th>Preparation Time<th>
+	  <th>Last Made<th>
+	  <th>Full Recipe Link<th>
+	</tr>
+      </thead>
+      <tbody>
+	{% for row in rows  %}
+	<tr>
+	  <td>{{row.rowid}}</td>
+	  <td>{{row.rname}}</td>
+	  <td>{{row.rating}}</td>
+	  <td>{{row.difficulty_level}}</td>
+	  <td>{{row.rtype}}</td>
+	  <td>{{row.prep_time}}</td>
+	  <td>{{row.main_ingredients}}</td>
+	  <td>{{row.last_made}}</td>
+	  <td>{{row.last_details_link}}</td>
+	</tr>
+	{%endfor  %}
+      </tbody>
+    </table>
+  </body>
+</html>
