@@ -23,13 +23,16 @@ def add_recipe():
         c = con.cursor();
         try:
             c.execute("INSERT INTO recipes VALUES( ?, ?, ?, ?, ?, ?, ?, ?)", params)
-            c.execute('''SELECT * FROM  recipes''')
             con.commit()
             con.close()
             return "Recipe Added.\n"
         except sqlite3.Error as e:
             print("something went wrong :  ", e)
             return False
-        
+
+@app.route("/recipe_list")
+def recipe_list():
+    return "recipe_list"
+
 if __name__ == '__main__':
     app.run(debug=True)
