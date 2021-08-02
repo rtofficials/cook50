@@ -2,6 +2,9 @@ from flask import Flask, request
 import sqlite3
 
 app = Flask(__name__)
+def connection():
+    con = sqlite3.connect("cook50.db")
+    c = con.cursor();
 
 @app.route('/')
 def home():
@@ -19,8 +22,6 @@ def add_recipe():
         last_made =  request.form["last_made"]
         details_link = request.form["details_link"]
         params = (rname, rating, difficulty_level, rtype, prep_time, main_ingredients, last_made, details_link)
-        con = sqlite3.connect("cook50.db")
-        c = con.cursor();
         try:
             c.execute("INSERT INTO recipes VALUES( ?, ?, ?, ?, ?, ?, ?, ?)", params)
             con.commit()
@@ -32,7 +33,13 @@ def add_recipe():
 
 @app.route("/recipe_list")
 def recipe_list():
-    return "recipe_list"
+    con = sqlite3.connect("cook50.db")
+    print("established")
+    c = con.cursor();
+    print("cursor created")
+    result = c.execute("select * from recipes")
+    print(result)
+    return render_template("recipe_list.html",  rows=c.fetchall())
 
 if __name__ == '__main__':
     app.run(debug=True)
