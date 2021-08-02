@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import sqlite3
 
 app = Flask(__name__)
@@ -22,6 +22,8 @@ def add_recipe():
         last_made =  request.form["last_made"]
         details_link = request.form["details_link"]
         params = (rname, rating, difficulty_level, rtype, prep_time, main_ingredients, last_made, details_link)
+        con = sqlite3.connect("cook50.db")
+        c = con.cursor();
         try:
             c.execute("INSERT INTO recipes VALUES( ?, ?, ?, ?, ?, ?, ?, ?)", params)
             con.commit()
