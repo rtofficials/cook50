@@ -37,11 +37,12 @@ def add_recipe():
 def recipe_list():
     con = sqlite3.connect("cook50.db")
     print("established")
+    con.row_factory = sqlite3.Row
     c = con.cursor();
     print("cursor created")
-    result = c.execute("select * from recipes")
-    print(result)
-    return render_template("recipe_list.html",  rows=c.fetchall())
+    c.execute("select * from recipes")
+    rows = c.fetchall()
+    return render_template("recipe_list.html",  rows=rows)
 
 if __name__ == '__main__':
     app.run(debug=True)
