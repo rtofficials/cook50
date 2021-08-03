@@ -22,7 +22,11 @@
       <tbody>
 	{% for row in rows  %}
 	<tr id="datarow">
-	  <td>{{row["id"]}}</td>
+	  <td>
+	    {%for id in range(1, records)%}
+	    {{id}}
+	    {%endfor%}
+	  </td>
 	  <td>{{row["rname"]}}</td>
 	  <td>
 	    {% for rate in range(0, row["rating"])%}
