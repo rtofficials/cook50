@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>cook50 | Recipe List</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+	<div class="container">
+	  <form action="/recipe_list" method="POST">
+	    <div class="add-recipe-input">
+	      <label for="rname" ></label>
+	      <input type="text" name="rname" />
+	    </div>
+	    <div class="add-recipe-input">
+	      <label for="rating" ></label>
+	      <input type="number" name="rating" />
+	    </div>
+	    <div class="add-recipe-input">
+	      <label for="difficulty-level" ></label>
+	      <input type="text" name="difficulty_level" />
+	    </div>
+	    <div class="add-recipe-input">
+	      <label for="rtype" ></label>
+	      <input type="text" name="type" />
+	    </div>
+	    <div class="add-recipe-input">
+	      <label for="rtype" ></label>
+	      <input type="text" name="type" />
+	    </div>
+	    <div class="add-recipe-input"> 
+	      <label for="prep-time" ></label>
+	      <input type="time" name="prep_time" />
+	    </div>
+	    <div class="add-recipe-input">
+	      <label for="main-ingredients" ></label>
+	      <input type="text" name="main_ingredients" />
+	    </div>
+	    <div class="add-recipe-input">
+	      <label for="last-made" ></label>
+	      <input type="date" name="last_made" />
+	    </div>
+	    <div class="add-recipe-input">
+	      <label for="details-link" ></label>
+	      <input type="url" name="details_link" />
+	    </div>
+	    <button type="submit">Add Recipe</button>
+	  </form>
+	</div>
+  </body>
+</html>
