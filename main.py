@@ -7,9 +7,6 @@ def connection():
     c = con.cursor();
 
 @app.route('/')
-def home():
-    return "on home page";
-
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method=="POST":
