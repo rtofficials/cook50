@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>cook50 | Recipe List</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='style.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
     <table>
@@ -24,7 +24,11 @@
 	<tr id="datarow">
 	  <td>{{row["id"]}}</td>
 	  <td>{{row["rname"]}}</td>
-	  <td>{{row["rating"]}}</td>
+	  <td>
+	    {% for rate in range(0, row["rating"])%}
+	    <img id="ratestar" src="{{url_for('static', filename='img/star.png')}}"/>
+	    {%endfor%}
+	  </td>
 	  <td>{{row["difficulty_level"]}}</td>
 	  <td>{{row["type"]}}</td>
 	  <td>{{row["prep_time"]}}</td>
