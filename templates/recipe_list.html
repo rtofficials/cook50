@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-<title>cook50 | Recipe List</title>
+    <title>cook50 | Recipe List</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
     <table>
       <thead>
-	<tr>
-	  <th>ID<th>
-	  <th>Recipe<th>
-	  <th>Rating<th>
-	  <th>Difficulty Level<th>
-	  <th>Type<th>
-	  <th>Preparation Time<th>
-	  <th>Last Made<th>
-	  <th>Full Recipe Link<th>
+	<tr id="headings" >
+	  <th>ID</th>
+	  <th>RECIPE</th>
+	  <th>RATING</th>
+	  <th>DIFFICULTY LEVEL</th>
+	  <th>TYPE</th>
+	  <th>PREPARATION TIME</th>
+	  <th>MAIN INGREDIENTS</th>
+	  <th>LAST MADE</th>
+	  <th>RECIPE LINK</th>
 	</tr>
       </thead>
       <tbody>
 	{% for row in rows  %}
-	<tr>
-	  <td>{{row.rowid}}</td>
-	  <td>{{row.rname}}</td>
-	  <td>{{row.rating}}</td>
-	  <td>{{row.difficulty_level}}</td>
-	  <td>{{row.rtype}}</td>
-	  <td>{{row.prep_time}}</td>
-	  <td>{{row.main_ingredients}}</td>
-	  <td>{{row.last_made}}</td>
-	  <td>{{row.last_details_link}}</td>
+	<tr id="datarow">
+	  <td>{{row["id"]}}</td>
+	  <td>{{row["rname"]}}</td>
+	  <td>{{row["rating"]}}</td>
+	  <td>{{row["difficulty_level"]}}</td>
+	  <td>{{row["type"]}}</td>
+	  <td>{{row["prep_time"]}}</td>
+	  <td>{{row["main_ingredients"]}}</td>
+	  <td>{{row["last_made"]}}</td>
+	  <td><a href={{row["last_details_link"]}}>{{row["rname"]}}</a></td>
 	</tr>
 	{%endfor  %}
       </tbody>
