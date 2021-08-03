@@ -18,17 +18,20 @@ def add_recipe():
         main_ingredients = request.form["main_ingredients"]
         last_made =  request.form["last_made"]
         details_link = request.form["details_link"]
-        params = (rname, rating, difficulty_level, rtype, prep_time, main_ingredients, last_made, details_link)
-        con = sqlite3.connect("cook50.db")
-        c = con.cursor();
-        try:
-            c.execute("INSERT INTO recipes VALUES( ?, ?, ?, ?, ?, ?, ?, ?)", params)
-            con.commit()
-            con.close()
-            return "Recipe Added.\n"
-        except sqlite3.Error as e:
-            print("something went wrong :  ", e)
-            return False
+        if rating > 5 :
+            return "rate on the scale of 1 to 5 only,/n"
+        else:
+            params = (rname, rating, difficulty_level, rtype, prep_time, main_ingredients, last_made, details_link)
+            con = sqlite3.connect("cook50.db")
+            c = con.cursor();
+            try:
+                c.execute("INSERT INTO recipes VALUES(?, ?, ?, ?, ?, ?, ?, ?)", params)
+                con.commit()
+                con.close()
+                return "Recipe Added.\n"
+            except sqlite3.Error as e:
+                print("something went wrong :  ", e)
+                return False
 
 @app.route("/recipe_list")
 def recipe_list():
@@ -39,7 +42,8 @@ def recipe_list():
     print("cursor created")
     c.execute("select * from recipes")
     rows = c.fetchall()
-    return render_template("recipe_list.html",  rows=rows)
+    records =  len(rows)
+    return render_template("recipe_list.html",  rows=rows, records=records)
 
 if __name__ == '__main__':
     app.run(debug=True)
