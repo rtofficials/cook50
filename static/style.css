@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+
+*{
+    padding : 0;
+    margin: 0;
+    box-sizing : box-border;
+    text-align : center;
+    font-family : 'Mukta';
+}
+
+table{
+    background : #e3ffea;
+    border : #ccffd9;
+}
+
+#headings{
+    background : #baffcb
+}
+
+th{
+    font-weight : 700;
+    padding : 0.5em 1em;
+}
+
+td{
+    width : auto;
+    padding : 0.5em 1.5em;
+}
+
+#datarow{
+    background : #ffd1de;
+    height : 1.3em;
+    padding : 1em 1em;
+}
+
+a{
+    text-decoration : none;
+    color : #9c002c
+}

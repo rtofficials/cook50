@@ -1,0 +1,23 @@
+*{
+    padding : 0;
+    margin: 0;
+    box-sizing : box-border;
+}
+
+table{
+    width : 100em;
+    background : #e3ffea;
+    border : #ccffd9;
+}
+
+#headings{
+    background : #baffcb
+}
+
+th{
+    font-weight : 700;
+}
+
+td{
+    background : #ffd1de;
+}
