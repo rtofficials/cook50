@@ -32,6 +32,7 @@ def add_recipe():
             except sqlite3.Error as e:
                 print("something went wrong :  ", e)
                 return False
+    return render_template("add_recipe.html")
 
 @app.route("/recipe_list")
 def recipe_list():
