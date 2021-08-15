@@ -20,28 +20,21 @@
 	</tr>
       </thead>
       <tbody>
-	{% for row in rows  %}
+	{%for row in rows  %}
 	<tr id="datarow">
-	  <td>
-	    {%for id in range(1, records)%}
-	    {{id}}
-	    {%endfor%}
-	  </td>
-	  <td>{{row["rname"]}}</td>
-	  <td>
-	    {% for rate in range(0, row["rating"])%}
-	    <img id="ratestar" src="{{url_for('static', filename='img/star.png')}}"/>
-	    {%endfor%}
-	  </td>
-	  <td>{{row["difficulty_level"]}}</td>
-	  <td>{{row["type"]}}</td>
-	  <td>{{row["prep_time"]}}</td>
-	  <td>{{row["main_ingredients"]}}</td>
-	  <td>{{row["last_made"]}}</td>
-	  <td><a href={{row["last_details_link"]}}>{{row["rname"]}}</a></td>
+	  <td>{{ row["rowid"] }}</td>
+	  <td>{{ row["rname"] }}</td>
+	  <td>{{ row['rating'] }}</td>
+	  <td>{{ row["difficulty_level"] }}</td>
+	  <td>{{ row["r_type"] }}</td>
+	  <td>{{ row["prep_time"] }}</td>
+	  <td>{{ row["main_ingredients"] }}</td>
+	  <td>{{ row["last_made"] }}</td>
+	  <td><a href={{ row["details_link"] }}>view recipe</a></td>
 	</tr>
 	{%endfor  %}
       </tbody>
     </table>
   </body>
 </html>
+e
