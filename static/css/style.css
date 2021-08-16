@@ -9,7 +9,7 @@
 }
 
 body{
-    padding-left : 4em;
+    padding-left : 6em;
     padding-top : 1em;
 }
 
@@ -44,6 +44,6 @@ a{
 }
 
 #ratestar{
-    heigth  : 15px !important;
-    width : 15px !important;
+    heigth  : 18px !important;
+    width : 18px !important;
 }
