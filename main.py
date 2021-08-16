@@ -37,13 +37,13 @@ def add_recipe():
             return "Uh oh! Recipe not added. Retry adding " + rname + " again.\n"
     return render_template("add_recipe.html")
 
-@app.route("/recipe_list", methods=["POST", "GET"])
+@app.route("/recipe_list")
 def recipe_list():
     con = sqlite3.connect("cook50.db")
     print("list : established")
     c = con.cursor();
     print("list : cursor created")
-    c.execute("SELECT rowid, * FROM RECIPES;")
+    c.execute("SELECT rowid, * FROM RECIPES ORDER BY rname;")
     rows = c.fetchall()
     return render_template("recipe_list.html",  rows=rows)
 
