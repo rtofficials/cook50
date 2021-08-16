@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 import sqlite3
 app = Flask(__name__)
+
 def connection():
     con = sqlite3.connect("cook50.db")
     c = con.cursor();
@@ -15,14 +16,17 @@ def add_recipe():
         rname = request.form["rname"]
         rating = request.form["rating"]
         difficulty_level = request.form["difficulty_level"]
-        rtype =  request.form["r_type"]
+        r_type =  request.form["r_type"]
         prep_time =  request.form["prep_time"]
         main_ingredients = request.form["main_ingredients"]
         last_made =  request.form["last_made"]
         details_link = request.form["details_link"]
-        params = (rname, rating, difficulty_level, rtype, prep_time, main_ingredients, last_made, details_link)
+        params = (rname, rating, difficulty_level, r_type, prep_time, main_ingredients, last_made, details_link)
+        print(params)
         con = sqlite3.connect("cook50.db")
+        print("add : established")
         c = con.cursor();
+        print("add : cursor created")
         try:
             c.execute("INSERT INTO recipes VALUES(?, ?, ?, ?, ?, ?, ?, ?)", params)
             con.commit()
@@ -30,37 +34,23 @@ def add_recipe():
             return "Recipe Added.\n"
         except sqlite3.Error as e:
             print("something went wrong :  ", e)
-            return "Uh oh! Recipe not added. Retry adding " + rname + "again.\n"
+            return "Uh oh! Recipe not added. Retry adding " + rname + " again.\n"
     return render_template("add_recipe.html")
 
-@app.route("/recipe_list")
+@app.route("/recipe_list", methods=["POST", "GET"])
 def recipe_list():
     con = sqlite3.connect("cook50.db")
-    print("established")
+    print("list : established")
     c = con.cursor();
-    print("cursor created")
+    print("list : cursor created")
     c.execute("SELECT rowid, * FROM RECIPES;")
     rows = c.fetchall()
     return render_template("recipe_list.html",  rows=rows)
 
 @app.route("/timer")
-
 def timer():
-    s=50;
-    m=59;
-    h=0;
-    while(True):
-        print('%d : %d  : %d' %(h, m, s))
-        time.sleep(1)
-        s += 1;
-        if s==60:
-            s=0;
-            m+=1
-        if m==60:
-            m=0
-            h =+ 1;
-        os.system('clear')
-    return render_template("timer.html", h=h, m=m,s=s)
+    print ("Timer will be added soon. WIP")
+    return App.render(render_template('timer.html'))
 
 if __name__ == '__main__':
     app.run(debug=True)
