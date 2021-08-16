@@ -6,44 +6,48 @@
   </head>
   <body>
 	<div class="container">
-	  <form action="{{url_for('recipe_list')}}" method="POST">
+	  <form action="{{url_for('add_recipe')}}" method="POST">
+
 	    <div class="add-recipe-input">
-	      <label for="rname" ></label>
+	      <label for="rname" >Recipe Name</label>
 	      <input type="text" name="rname" />
 	    </div>
+	    
 	    <div class="add-recipe-input">
-	      <label for="rating" ></label>
-	      <input type="number" name="rating" />
-	    </div>
+	      <label for="rating" >Rating</label>
+	      <input type="number" name="rating" /></div>
+
 	    <div class="add-recipe-input">
-	      <label for="difficulty-level" ></label>
+	      <label for="difficulty-level" >Difficulty Level</label>
 	      <input type="text" name="difficulty_level" />
 	    </div>
+
 	    <div class="add-recipe-input">
-	      <label for="rtype" ></label>
-	      <input type="text" name="type" />
+	      <label for="r_type" >Recipe Type</label>
+	      <input type="text" name="r_type" />
 	    </div>
+
 	    <div class="add-recipe-input">
-	      <label for="rtype" ></label>
-	      <input type="text" name="type" />
+	      <label for="preptime" >Preparation Time</label>
+	      <input type="text" name="prep_time" />
 	    </div>
-	    <div class="add-recipe-input"> 
-	      <label for="prep-time" ></label>
-	      <input type="time" name="prep_time" />
-	    </div>
+
 	    <div class="add-recipe-input">
-	      <label for="main-ingredients" ></label>
+	      <label for="main-ingredients" >Main Ingredients</label>
 	      <input type="text" name="main_ingredients" />
 	    </div>
+
 	    <div class="add-recipe-input">
-	      <label for="last-made" ></label>
+	      <label for="last-made" >Last Made</label>
 	      <input type="date" name="last_made" />
 	    </div>
+
 	    <div class="add-recipe-input">
-	      <label for="details-link" ></label>
+	      <label for="details-link" >Recipe Link</label>
 	      <input type="url" name="details_link" />
 	    </div>
-	    <button type="submit">Add Recipe</button>
+
+	    <input type="submit" value="add recipe">
 	  </form>
 	</div>
   </body>
