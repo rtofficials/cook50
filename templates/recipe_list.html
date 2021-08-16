@@ -22,15 +22,23 @@
       <tbody>
 	{%for row in rows  %}
 	<tr id="datarow">
-	  <td>{{ row["rowid"] }}</td>
-	  <td>{{ row["rname"] }}</td>
-	  <td>{{ row['rating'] }}</td>
-	  <td>{{ row["difficulty_level"] }}</td>
-	  <td>{{ row["r_type"] }}</td>
-	  <td>{{ row["prep_time"] }}</td>
-	  <td>{{ row["main_ingredients"] }}</td>
-	  <td>{{ row["last_made"] }}</td>
-	  <td><a href={{ row["details_link"] }}>view recipe</a></td>
+	  <td>{{row[0] }}</td>
+	  <td>{{ row[1] }}</td>
+	  <td>
+	     {% for rate in range(0,row[2])%}
+	    <img id="ratestar" src="{{url_for('static', filename='img/star.svg')}}"/>
+	    {%endfor%}
+	  </td>
+	  <td>
+	    {% for rate in range(0,row[3])%}
+	    <img id="ratestar" src="{{url_for('static', filename='img/fire.svg')}}"/>
+	    {%endfor%}
+	  </td>
+	  <td>{{ row[4] }}</td>
+	  <td>{{ row[5] }}</td>
+	  <td>{{ row[6] }}</td>
+	  <td>{{ row[7] }}</td>
+	  <td><a href={{ row[8] }} target="_blank">view recipe</a></td>
 	</tr>
 	{%endfor  %}
       </tbody>
