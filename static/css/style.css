@@ -4,13 +4,58 @@
     padding : 0;
     margin: 0;
     box-sizing : box-border;
-    text-align : center;
     font-family : 'Mukta';
 }
 
 body{
-    padding-left : 6em;
-    padding-top : 1em;
+    animation-name : gradient;
+    animation-duration : 6s;
+    background : linear-gradient(to left, #0f0c29, #302b63, #24243e);
+    width : inherit;
+    height : inherit;
+    margin-left : 6em;
+    margin-top : 4em;
+}
+
+section {
+    color : white;
+}
+
+section ul{
+    display : inline-flex;
+}
+
+section ul li {
+    display : inline-flex;
+    margin-right : 1em;
+}
+
+section ul  li a{
+    color : #9effb8;
+    list-style-type : none;
+}
+
+section ul  li a:hover{
+    color : #81e39c;
+    list-style-type : none;
+}
+
+#logo{
+    height : 20em;
+    width : 20em;
+}
+
+.logo{
+    position : fixed;
+    right : 5em;
+    bottom : 8em;
+}
+
+.container{
+    background : #ededed;
+    width : 89%;
+    height : inherit;
+    padding : 5em 3em;
 }
 
 table{
@@ -46,4 +91,8 @@ a{
 #ratestar{
     heigth  : 18px !important;
     width : 18px !important;
+}
+
+li{
+    list-style-type : none;
 }

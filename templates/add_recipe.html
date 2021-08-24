@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>cook50 | Recipe List</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/style.css') }}">
-  </head>
-  <body>
+{% extends 'home.html' %}
+{%block header%}
+{%block title%} cook50 | Add Recipe{%endblock%}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/style.css') }}">
+{%endblock%}
+    {%block content%}
 	<div class="container">
 	  <form action="{{url_for('add_recipe')}}" method="POST">
 
@@ -23,8 +22,10 @@
 	    </div>
 
 	    <div class="add-recipe-input">
-	      <label for="r_type" >Recipe Type</label>
-	      <input type="text" name="r_type" />
+	      <row>
+	      <col><label for="r_type" >Recipe Type</label></col>
+	      <col><input type="text" name="r_type" /></col
+	      </row>
 	    </div>
 
 	    <div class="add-recipe-input">
@@ -53,5 +54,4 @@
 	<div>
 	  <a href="{{url_for('recipe_list')}}">View Recipe List </a>
 	</div>
-  </body>
-</html>
+	{%endblock%}

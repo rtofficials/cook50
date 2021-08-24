@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head><title>Cook50 | Personalised Cookbook<title></head>
+  <head>{%block header%}
+    <title>{%block title%}Cook50 | Personalised Cookbook{%endblock%}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    {%endblock%}
+  </head>
   <body>
-    <h2>COOK50</h2>
-    <h4>Your personalised cookbook</h4>
-    <h5><em>...that keeps track of your recipes and cook progress</em></h5>
-    <img src="image.jpg" alt="some image over here of nature">
-    <a href="{{ url_for("add_recipe") }}">Update my cookbook</a>
-    <a href="{{ url_for("recipe_list") }}">show recipes i know</a>
+    {%block content%}
+    <nav>
+      <section>
+	<h2>COOK50</h2>
+	<h4>Your personalised cookbook</h4>
+	<h5><em>...that keeps track of your recipes and cook progress</em></h5>
+      </section>
+      <section>
+	<ul>
+	  <li><a href="{{ url_for('add_recipe') }}">| Add a recipe</a></li>
+	  <li><a href="{{ url_for('recipe_list') }}">| View Recipes</a></li>
+	  <li><a href="{{ url_for('timer') }}">| Try Timer</a></li>
+	</ul>
+      </section>
+    </nav>
+    <div class="logo">
+      <img id="logo" src="{{url_for('static', filename='img/favicon.svg') }}"
+    </div>
+    {%endblock%}
   </body>
 </html>
 

@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>cook50 | Recipe List</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/style.css') }}">
-  </head>
-  <body>
+{%block header%}
+{%block title%}cook50 | Recipe List{%endblock%}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/style.css') }}">
+{%endblock%}
+{%block content%}
+<div class="container">
     <table>
       <thead>
 	<tr id="headings" >
@@ -43,6 +42,5 @@
 	{%endfor  %}
       </tbody>
     </table>
-  </body>
-</html>
-e
+   </div>
+    {%endblock%}
