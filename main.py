@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 import sqlite3
+import os, time, keyboard, sys
 app = Flask(__name__)
 
 def connection():
@@ -50,7 +51,7 @@ def recipe_list():
 @app.route("/timer")
 def timer():
     print ("Timer will be added soon. WIP")
-    return App.render(render_template('timer.html'))
+    return render_template('timer.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
