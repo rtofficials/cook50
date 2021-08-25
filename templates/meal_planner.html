@@ -1,0 +1,29 @@
+{%block header%}
+{%block title%}cook50 | meal planner{%endblock%}
+{%endblock%}
+
+{%block content%}
+<div class="container">
+  {%for meal in meals%}
+  <h3>{{meal[1]}}</h3>
+  <table border=1>
+    <thead>
+    <tr>
+      <th>Day</th>
+      <th>Date</th>
+      <th>Meal Type</th>
+      <th>Meals</<th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+	<td>{{meal[0]}}</td>
+	<td>{{meal[1]}}</td>
+	<td>{{meal[3]}}</td>
+	<td>{{meal[4]}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{%endfor%}
+{%endblock%}
