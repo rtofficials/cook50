@@ -41,12 +41,22 @@ def add_recipe():
 @app.route("/recipe_list")
 def recipe_list():
     con = sqlite3.connect("cook50.db")
-    print("list : established")
+    print("list : connection established")
     c = con.cursor();
     print("list : cursor created")
     c.execute("SELECT rowid, * FROM RECIPES ORDER BY rname;")
     rows = c.fetchall()
     return render_template("recipe_list.html",  rows=rows)
+
+@app.route("/meal-planner")
+def meal_planner():
+    con = sqlite3.connect("cook50.db")
+    print("planner : established")
+    c = con.cursor()
+    print("planner : cursor created")
+    c.execute("SELECT rowid, day, date, mealtype, mealname FROM MEALS;")
+    meals = c.fetchall();
+    return render_template("meal_planner.html", meals=meals)
 
 @app.route("/timer")
 def timer():
