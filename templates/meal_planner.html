@@ -1,14 +1,41 @@
-{%block header%}
+{% extends "home.html" %}
+{% block header  %}
 {%block title%}cook50 | meal planner{%endblock%}
 {%endblock%}
-
 {%block content%}
 <div class="container">
+  <div>
+    <form action="{{url_for('meal_planner')}}" method="POST">
+      <div>
+	<label>Day</label><br>
+	<input type="text" name="day" placeholder="For which day are you planning your meal?">
+      </div>
+
+       <div>
+	<label>Date</label><br>
+	<input type="text" name="date" placeholder="For which date are you planning your meal?">
+       </div>
+
+        <div>
+	<label>Meal Type</label><br>
+	<input type="text" name="mealtype" placeholder="what type of meal are you planning for?">
+	</div>
+
+	 <div>
+	<label>Meal Name</label><br>
+	<input type="text" name="mealname" placeholder="What meal will you eat?">
+	 </div>
+
+	 <div>
+	   <input type="submit" value="plan meal">
+	 </div>
+    </form>
+  </div>
   {%for meal in meals%}
   <h3>{{meal[1]}}</h3>
   <table border=1>
     <thead>
-    <tr>
+    <tr >
       <th>Day</th>
       <th>Date</th>
       <th>Meal Type</th>
@@ -20,6 +47,7 @@
 	<td>{{meal[0]}}</td>
 	<td>{{meal[1]}}</td>
 	<td>{{meal[3]}}</td>
+
 	<td>{{meal[4]}}</td>
       </tr>
     </tbody>
